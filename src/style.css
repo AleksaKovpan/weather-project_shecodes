@@ -146,3 +146,13 @@ form {
 .cloud {
   color: #81a8ac;
 }
+.git-link {
+  color: rgb(75, 75, 231);
+}
+.git-link:hover {
+  text-decoration: underline;
+  color: blue;
+}
+.open-source-code {
+  text-align: center;
+}
