@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Parcel Sandbox</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/3ee7d7cc27.js"
+      crossorigin="anonymous"
+    ></script>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+
+  <body>
+    <div class="conteiner">
+      <div class="search-form">
+        <form id="form-id">
+          <input
+            type="text"
+            placeholder="Enter city"
+            class="search"
+            id="search-text-input"
+          />
+          <input type="submit" value="Search" class="submit" />
+          <input type="submit" value="Current" class="current" />
+        </form>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="current-city-temp">
+            <div class="city-data">
+              <i class="fa-solid fa-map-pin"></i>
+              <span class="current-city"> Kyiv</span>
+              <div>
+                <span class="current-month">September</span>
+                <span class="current-date">10</span> <br />
+                <div class="current-day">Suturday</div>
+              </div>
+            </div>
+            <div class="current-temp">
+              <i class="fa-solid fa-temperature-three-quarters"></i>
+              <span class="current-temp-value">15°C</span>
+              <div class="current-temp-value-feeling">feels like 13°C</div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="current-icon">
+            <span class="weather-icon">⛅</span>
+            <div class="weather-description">cloudy</div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="weather-detail">
+            <!-- <div class="weather-detail-item">
+              <div class="weather-description-item">Precipitation</div>
+              <span class="weather-detail-icon">💧</span>
+              <span class="weather-value">
+                <span class="precipitation-value">15</span>%</span
+              > -->
+            <!-- </div> -->
+            <div class="weather-detail-item">
+              <div class="weather-description-item">Wind</div>
+              <span class="weather-detail-icon">💨</span>
+              <span class="weather-value">
+                <span class="wind-value">10</span> km/h</span
+              >
+            </div>
+            <div class="weather-detail-item">
+              <div class="weather-description-item">Humidity</div>
+              <span class="weather-detail-icon">♒</span>
+              <span class="weather-value">
+                <span class="humidity-value">47</span>%</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="city-week">
+        <div class="row">
+          <div class="col">
+            <div class="day-item">
+              <div class="week-day">Sunday</div>
+              <div class="day-weather-icon">⛅</div>
+              <div class="day-temperature">+15°</div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="day-item">
+              <div class="week-day">Monday</div>
+              <div class="day-weather-icon">☔</div>
+              <div class="day-temperature">+9°</div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="day-item">
+              <div class="week-day">Tuesday</div>
+              <div class="day-weather-icon"><span class="cloud">☁</span></div>
+              <div class="day-temperature">+8°</div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="day-item">
+              <div class="week-day">Wednesday</div>
+              <div class="day-weather-icon"><span class="sun">☀</span></div>
+              <div class="day-temperature">+10°</div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="day-item">
+              <div class="week-day">Thursday</div>
+              <div class="day-weather-icon">⛅</div>
+              <div class="day-temperature">+7°</div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="day-item">
+              <div class="week-day">Friday</div>
+              <div class="day-weather-icon">☔</div>
+              <div class="day-temperature">+8°</div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="day-item">
+              <div class="week-day">Saturday</div>
+              <div class="day-weather-icon"><span class="sun">☀</span></div>
+              <div class="day-temperature">+11°</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/app.js"></script>
+  </body>
+</html>
