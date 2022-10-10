@@ -12,8 +12,11 @@ a:hover {
   color: red;
 }
 .conteiner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.wrapper {
   background: linear-gradient(to bottom, #30cfd0 0%, #330867 100%);
-
   max-width: 800px;
   margin: 0 auto;
   padding: 20px 60px 40px 60px;
@@ -153,6 +156,6 @@ form {
   text-decoration: underline;
   color: blue;
 }
-.open-source-code {
+/* .open-source-code {
   text-align: center;
-}
+} */
