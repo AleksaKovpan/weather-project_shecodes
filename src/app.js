@@ -77,7 +77,43 @@ cdate.innerHTML = `${date}`;
 // }
 // let fahrenheitFeeling = document.querySelector("#fahrenheit");
 // fahrenheit.addEventListener("click", selectFahrenheitFeeling);
+function changeIcon(iconCode) {
+  let weatherIcon = "";
 
+  if ([`09d`, `09n`, `10d`, `10n`].includes(iconCode)) {
+    weatherIcon = "icons/rainy.svg";
+  } else {
+    if (iconCode === `01d`) {
+      weatherIcon = "icons/day.svg";
+    } else {
+      if (iconCode === `01n`) {
+        weatherIcon = "icons/night.svg";
+      } else {
+        if (iconCode === `02d`) {
+          weatherIcon = "icons/cloudy-day.svg";
+        } else {
+          if (iconCode === `02n`) {
+            weatherIcon = "icons/cloudy-night.svg";
+          } else {
+            if ([`03d`, `04d`, `03n`, `04n`, `50d`, `50n`].includes(iconCode)) {
+              weatherIcon = "icons/cloudy.svg";
+            } else {
+              if ([`11d`, `11n`].includes(iconCode)) {
+                weatherIcon = "icons/thunder.svg";
+              } else {
+                if ([`13d`, `13n`].includes(iconCode)) {
+                  weatherIcon = "icons/snowy.svg";
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  return weatherIcon;
+}
 function showTemperature(respons) {
   console.log(respons.data);
   document.querySelector(".current-city").innerHTML = respons.data.name;
@@ -98,6 +134,11 @@ function showTemperature(respons) {
   let feelsLike = Math.round(respons.data.main.feels_like);
   let cityFeelsLike = document.querySelector(".current-temp-value-feeling");
   cityFeelsLike.innerHTML = `feels like ${feelsLike}°C`;
+  let mainIcon = document.querySelector(".weather-icon");
+  let iconCode = respons.data.weather[0].icon;
+  changeIcon(iconCode);
+  mainIcon.setAttribute("src", `${changeIcon(iconCode)}`);
+  mainIcon.setAttribute("alt", respons.data.weather[0].description);
 }
 
 function showPosition(position) {

@@ -60,7 +60,7 @@ form {
   color: #fff;
 }
 .fa-map-pin {
-  font-size: 28px;
+  font-size: 24px;
   color: red;
 }
 .current-city {
@@ -69,13 +69,13 @@ form {
   text-transform: capitalize;
 }
 .fa-temperature-three-quarters {
-  font-size: 32px;
+  font-size: 24px;
   color: red;
 }
 .current-city-temp {
   position: relative;
   top: 100px;
-  left: 20px;
+  left: 10px;
   color: #fff;
 }
 .current-temp {
@@ -88,22 +88,23 @@ form {
 }
 
 .weather-icon {
-  font-size: 240px;
-  position: relative;
-  top: 20px;
+  width: 350px;
+  /* position: relative;
+  top: 20px; */
 }
 .weather-description {
+  text-transform: capitalize;
   text-align: center;
   color: #fff;
   font-size: 28px;
   position: relative;
   bottom: 70px;
-  left: 10px;
+  /* left: 5px; */
 }
 .weather-detail {
   position: relative;
-  top: 100px;
-  left: 60px;
+  top: 120px;
+  /* left: 10px; */
 }
 .weather-detail-item {
   color: #fff;
@@ -156,6 +157,3 @@ form {
   text-decoration: underline;
   color: blue;
 }
-/* .open-source-code {
-  text-align: center;
-} */
