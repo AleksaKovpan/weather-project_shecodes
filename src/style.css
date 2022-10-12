@@ -8,9 +8,10 @@ a {
   color: #fff;
 }
 a:hover {
-  text-decoration: none;
-  color: red;
+  /* text-decoration: none; */
+  color: #e2c64b;
 }
+
 .conteiner {
   max-width: 800px;
   margin: 0 auto;
@@ -90,6 +91,14 @@ form {
   position: relative;
   font-size: 16px;
   top: -20px;
+}
+.active {
+  cursor: default;
+  font-size: 20px;
+  color: #e2c64b;
+}
+.active:hover {
+  color: #fff;
 }
 .weather-icon {
   width: 350px;
