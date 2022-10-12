@@ -38,23 +38,23 @@ if (date < 10) {
 }
 cdate.innerHTML = `${date}`;
 
-// function selectCelsius(event) {
-//   event.preventDefault();
+function selectCelsius(event) {
+  event.preventDefault();
 
-//   let celsiusValue = document.querySelector(".current-temp-value");
-//   celsiusValue.innerHTML = "+15°";
-// }
-// let celsius = document.querySelector("#celsius");
-// celsius.addEventListener("click", selectCelsius);
+  let celsiusValue = document.querySelector(".current-temp-value");
+  celsiusValue.innerHTML = "+15°";
+}
+let celsius = document.querySelector(".celsius");
+celsius.addEventListener("click", selectCelsius);
 
-// function selectFahrenheit(event) {
-//   event.preventDefault();
+function selectFahrenheit(event) {
+  event.preventDefault();
 
-//   let fahrenheitValue = document.querySelector(".current-temp-value");
-//   fahrenheitValue.innerHTML = "+59°";
-// }
-// let fahrenheit = document.querySelector("#fahrenheit");
-// fahrenheit.addEventListener("click", selectFahrenheit);
+  let fahrenheitValue = document.querySelector(".current-temp-value");
+  fahrenheitValue.innerHTML = "+59°";
+}
+let fahrenheit = document.querySelector(".fahrenheit");
+fahrenheit.addEventListener("click", selectFahrenheit);
 
 // function selectCelsiusFeeling(event) {
 //   event.preventDefault();
@@ -120,8 +120,6 @@ function showTemperature(respons) {
   let temperature = Math.round(respons.data.main.temp);
   let cityTemperature = document.querySelector(".current-temp-value");
   cityTemperature.innerHTML = `${temperature}°C`;
-  // let precipitation = document.querySelector(".precipitation-value");
-  // precipitation.innerHTML = respons.data;
   let wind = respons.data.wind.speed;
   let cityWind = document.querySelector(".wind-value");
   cityWind.innerHTML = `${wind}`;
