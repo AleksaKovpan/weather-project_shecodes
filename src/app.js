@@ -38,48 +38,28 @@ if (date < 10) {
 }
 cdate.innerHTML = `${date}`;
 
-function selectCelsius(event) {
-  event.preventDefault();
-  celsius.classList.add("active");
-  fahrenheit.classList.remove("active");
-  let celsiusValue = document.querySelector(".current-temp-value");
-  celsiusValue.innerHTML = Math.round(celsiusTemperature);
-}
-let celsius = document.querySelector("#celsius");
-celsius.addEventListener("click", selectCelsius);
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `  
+         <div class="col-2">
+        <div class="day-item">
+          <div class="week-day">${day}</div>
+          <img src="icons/cloudy-day.svg" alt="" width="48" />
+          <div class="day-weather-icon"></div>
+          <div class="day-temperature">+15°</div>
+        </div>
+      </div>
+      `;
+  });
 
-function selectCelsiusFeelsLike(event) {
-  event.preventDefault();
-  let celsiusValueFeelsLike = document.querySelector(".temp-value-feeling");
-  celsiusValueFeelsLike.innerHTML = Math.round(celsiusTemperatureFeelsLike);
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
-let celsiusFeelsLike = document.querySelector("#celsius");
-celsiusFeelsLike.addEventListener("click", selectCelsiusFeelsLike);
-
-let celsiusTemperature = null;
-let celsiusTemperatureFeelsLike = null;
-function selectFahrenheit(event) {
-  event.preventDefault();
-  celsius.classList.remove("active");
-  fahrenheit.classList.add("active");
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  let fahrenheitValue = document.querySelector(".current-temp-value");
-  fahrenheitValue.innerHTML = Math.round(fahrenheitTemperature);
-}
-let fahrenheit = document.querySelector("#fahrenheit");
-fahrenheit.addEventListener("click", selectFahrenheit);
-
-function selectFahrenheitFeelsLike(event) {
-  event.preventDefault();
-  let fahrenheitTemperatureFeelsLike =
-    (celsiusTemperatureFeelsLike * 9) / 5 + 32;
-  let fahrenheitValueFeelsLike = document.querySelector(".temp-value-feeling");
-  fahrenheitValueFeelsLike.innerHTML = Math.round(
-    fahrenheitTemperatureFeelsLike
-  );
-}
-let fahrenheitFeelsLike = document.querySelector("#fahrenheit");
-fahrenheitFeelsLike.addEventListener("click", selectFahrenheitFeelsLike);
 
 // function selectCelsiusFeeling(event) {
 //   event.preventDefault();
@@ -155,7 +135,9 @@ function showTemperature(respons) {
   let weatherDescription = respons.data.weather[0].description;
   let cityWeatherDescription = document.querySelector(".weather-description");
   cityWeatherDescription.innerHTML = `${weatherDescription}`;
+
   celsiusTemperatureFeelsLike = respons.data.main.feels_like;
+
   let feelsLike = Math.round(celsiusTemperatureFeelsLike);
   let cityFeelsLike = document.querySelector(".temp-value-feeling");
   cityFeelsLike.innerHTML = feelsLike;
@@ -189,3 +171,48 @@ let form = document.querySelector("#form-id");
 form.addEventListener("submit", searchCity);
 let button = document.querySelector(".current");
 button.addEventListener("click", getCurrentPosition);
+
+function selectCelsius(event) {
+  event.preventDefault();
+  celsius.classList.add("active");
+  fahrenheit.classList.remove("active");
+  let celsiusValue = document.querySelector(".current-temp-value");
+  celsiusValue.innerHTML = Math.round(celsiusTemperature);
+}
+let celsius = document.querySelector("#celsius");
+celsius.addEventListener("click", selectCelsius);
+
+function selectCelsiusFeelsLike(event) {
+  event.preventDefault();
+  let celsiusValueFeelsLike = document.querySelector(".temp-value-feeling");
+  celsiusValueFeelsLike.innerHTML = Math.round(celsiusTemperatureFeelsLike);
+}
+let celsiusFeelsLike = document.querySelector("#celsius");
+celsiusFeelsLike.addEventListener("click", selectCelsiusFeelsLike);
+
+let celsiusTemperature = null;
+let celsiusTemperatureFeelsLike = null;
+
+function selectFahrenheit(event) {
+  event.preventDefault();
+  celsius.classList.remove("active");
+  fahrenheit.classList.add("active");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  let fahrenheitValue = document.querySelector(".current-temp-value");
+  fahrenheitValue.innerHTML = Math.round(fahrenheitTemperature);
+}
+let fahrenheit = document.querySelector("#fahrenheit");
+fahrenheit.addEventListener("click", selectFahrenheit);
+
+function selectFahrenheitFeelsLike(event) {
+  event.preventDefault();
+  let fahrenheitTemperatureFeelsLike =
+    (celsiusTemperatureFeelsLike * 9) / 5 + 32;
+  let fahrenheitValueFeelsLike = document.querySelector(".temp-value-feeling");
+  fahrenheitValueFeelsLike.innerHTML = Math.round(
+    fahrenheitTemperatureFeelsLike
+  );
+}
+let fahrenheitFeelsLike = document.querySelector("#fahrenheit");
+fahrenheitFeelsLike.addEventListener("click", selectFahrenheitFeelsLike);
+displayForecast();
