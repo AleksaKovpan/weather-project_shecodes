@@ -1,5 +1,5 @@
 let now = new Date();
-console.log(now);
+
 let days = [
   "Sunday",
   "Monday",
@@ -38,7 +38,8 @@ if (date < 10) {
 }
 cdate.innerHTML = `${date}`;
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
@@ -119,33 +120,44 @@ function changeIcon(iconCode) {
 
   return weatherIcon;
 }
-function showTemperature(respons) {
-  console.log(respons.data);
-  celsiusTemperature = respons.data.main.temp;
-  document.querySelector(".current-city").innerHTML = respons.data.name;
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "ca0db41e2e878c74a1dfc7ffece370d4";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function showTemperature(response) {
+  console.log(response.data);
+  celsiusTemperature = response.data.main.temp;
+  document.querySelector(".current-city").innerHTML = response.data.name;
   let temperature = Math.round(celsiusTemperature);
   let cityTemperature = document.querySelector(".current-temp-value");
   cityTemperature.innerHTML = temperature;
-  let wind = respons.data.wind.speed;
+  let wind = response.data.wind.speed;
   let cityWind = document.querySelector(".wind-value");
   cityWind.innerHTML = `${wind}`;
-  let humidity = respons.data.main.humidity;
+  let humidity = response.data.main.humidity;
   let cityHumidity = document.querySelector(".humidity-value");
   cityHumidity.innerHTML = `${humidity}`;
-  let weatherDescription = respons.data.weather[0].description;
+  let weatherDescription = response.data.weather[0].description;
   let cityWeatherDescription = document.querySelector(".weather-description");
   cityWeatherDescription.innerHTML = `${weatherDescription}`;
 
-  celsiusTemperatureFeelsLike = respons.data.main.feels_like;
+  celsiusTemperatureFeelsLike = response.data.main.feels_like;
 
   let feelsLike = Math.round(celsiusTemperatureFeelsLike);
   let cityFeelsLike = document.querySelector(".temp-value-feeling");
   cityFeelsLike.innerHTML = feelsLike;
   let mainIcon = document.querySelector(".weather-icon");
-  let iconCode = respons.data.weather[0].icon;
+  let iconCode = response.data.weather[0].icon;
   changeIcon(iconCode);
   mainIcon.setAttribute("src", `${changeIcon(iconCode)}`);
-  mainIcon.setAttribute("alt", respons.data.weather[0].description);
+  mainIcon.setAttribute("alt", response.data.weather[0].description);
+
+  getForecast(response.data.coord);
 }
 
 function showPosition(position) {
@@ -215,4 +227,4 @@ function selectFahrenheitFeelsLike(event) {
 }
 let fahrenheitFeelsLike = document.querySelector("#fahrenheit");
 fahrenheitFeelsLike.addEventListener("click", selectFahrenheitFeelsLike);
-displayForecast();
+// displayForecast();
