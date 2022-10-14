@@ -38,24 +38,44 @@ if (date < 10) {
 }
 cdate.innerHTML = `${date}`;
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  return days[day];
+}
+
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
+
   let forecastHTML = `<div class="row">`;
-  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `  
+  // let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      let iconCode = forecastDay.weather[0].icon;
+      forecastHTML =
+        forecastHTML +
+        `  
          <div class="col-2">
         <div class="day-item">
-          <div class="week-day">${day}</div>
-          <img src="icons/cloudy-day.svg" alt="" width="48" />
-          <div class="day-weather-icon"></div>
-          <div class="day-temperature">+15°</div>
+          <div class="week-day">${formatDay(forecastDay.dt)}</div>
+          <img src="${changeIcon(iconCode)}" alt="" width="48" />
+          <div class="day-temperature">${Math.round(
+            forecastDay.temp.day
+          )}°</div>
         </div>
       </div>
       `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
