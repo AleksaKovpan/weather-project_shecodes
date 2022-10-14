@@ -82,27 +82,6 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 
-// function selectCelsiusFeeling(event) {
-//   event.preventDefault();
-
-//   let celsiusFeelingValue = document.querySelector(
-//     ".current-temp-value-feeling"
-//   );
-//   celsiusFeelingValue.innerHTML = `feels like +13°`;
-// }
-// let celsiusFeeling = document.querySelector("#celsius");
-// celsius.addEventListener("click", selectCelsiusFeeling);
-
-// function selectFahrenheitFeeling(event) {
-//   event.preventDefault();
-
-//   let fahrenheitFeelingValue = document.querySelector(
-//     ".current-temp-value-feeling"
-//   );
-//   fahrenheitFeelingValue.innerHTML = `feels like +55°`;
-// }
-// let fahrenheitFeeling = document.querySelector("#fahrenheit");
-// fahrenheit.addEventListener("click", selectFahrenheitFeeling);
 function changeIcon(iconCode) {
   let weatherIcon = "";
 
@@ -187,64 +166,68 @@ function showPosition(position) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
   axios.get(apiUrl).then(showTemperature);
 }
+
 function getCurrentPosition() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
-function searchCity(event) {
-  event.preventDefault();
-  let city = document.querySelector("#search-text-input").value;
+
+function searchCity(city) {
   let apiKey = "ca0db41e2e878c74a1dfc7ffece370d4";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemperature);
-  let cityName = document.querySelector(".current-city");
-  cityName.innerHTML = `${city}`;
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let city = document.querySelector("#search-text-input").value;
+  searchCity(city);
 }
 let form = document.querySelector("#form-id");
-form.addEventListener("submit", searchCity);
+form.addEventListener("submit", handleSubmit);
 let button = document.querySelector(".current");
 button.addEventListener("click", getCurrentPosition);
 
-function selectCelsius(event) {
-  event.preventDefault();
-  celsius.classList.add("active");
-  fahrenheit.classList.remove("active");
-  let celsiusValue = document.querySelector(".current-temp-value");
-  celsiusValue.innerHTML = Math.round(celsiusTemperature);
-}
-let celsius = document.querySelector("#celsius");
-celsius.addEventListener("click", selectCelsius);
+// function selectCelsius(event) {
+//   event.preventDefault();
+//   celsius.classList.add("active");
+//   fahrenheit.classList.remove("active");
+//   let celsiusValue = document.querySelector(".current-temp-value");
+//   celsiusValue.innerHTML = Math.round(celsiusTemperature);
+// }
+// let celsius = document.querySelector("#celsius");
+// celsius.addEventListener("click", selectCelsius);
 
-function selectCelsiusFeelsLike(event) {
-  event.preventDefault();
-  let celsiusValueFeelsLike = document.querySelector(".temp-value-feeling");
-  celsiusValueFeelsLike.innerHTML = Math.round(celsiusTemperatureFeelsLike);
-}
-let celsiusFeelsLike = document.querySelector("#celsius");
-celsiusFeelsLike.addEventListener("click", selectCelsiusFeelsLike);
+// function selectCelsiusFeelsLike(event) {
+//   event.preventDefault();
+//   let celsiusValueFeelsLike = document.querySelector(".temp-value-feeling");
+//   celsiusValueFeelsLike.innerHTML = Math.round(celsiusTemperatureFeelsLike);
+// }
+// let celsiusFeelsLike = document.querySelector("#celsius");
+// celsiusFeelsLike.addEventListener("click", selectCelsiusFeelsLike);
 
-let celsiusTemperature = null;
-let celsiusTemperatureFeelsLike = null;
+// let celsiusTemperature = null;
+// let celsiusTemperatureFeelsLike = null;
 
-function selectFahrenheit(event) {
-  event.preventDefault();
-  celsius.classList.remove("active");
-  fahrenheit.classList.add("active");
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  let fahrenheitValue = document.querySelector(".current-temp-value");
-  fahrenheitValue.innerHTML = Math.round(fahrenheitTemperature);
-}
-let fahrenheit = document.querySelector("#fahrenheit");
-fahrenheit.addEventListener("click", selectFahrenheit);
+// function selectFahrenheit(event) {
+//   event.preventDefault();
+//   celsius.classList.remove("active");
+//   fahrenheit.classList.add("active");
+//   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+//   let fahrenheitValue = document.querySelector(".current-temp-value");
+//   fahrenheitValue.innerHTML = Math.round(fahrenheitTemperature);
+// }
+// let fahrenheit = document.querySelector("#fahrenheit");
+// fahrenheit.addEventListener("click", selectFahrenheit);
 
-function selectFahrenheitFeelsLike(event) {
-  event.preventDefault();
-  let fahrenheitTemperatureFeelsLike =
-    (celsiusTemperatureFeelsLike * 9) / 5 + 32;
-  let fahrenheitValueFeelsLike = document.querySelector(".temp-value-feeling");
-  fahrenheitValueFeelsLike.innerHTML = Math.round(
-    fahrenheitTemperatureFeelsLike
-  );
-}
-let fahrenheitFeelsLike = document.querySelector("#fahrenheit");
-fahrenheitFeelsLike.addEventListener("click", selectFahrenheitFeelsLike);
-// displayForecast();
+// function selectFahrenheitFeelsLike(event) {
+//   event.preventDefault();
+//   let fahrenheitTemperatureFeelsLike =
+//     (celsiusTemperatureFeelsLike * 9) / 5 + 32;
+//   let fahrenheitValueFeelsLike = document.querySelector(".temp-value-feeling");
+//   fahrenheitValueFeelsLike.innerHTML = Math.round(
+//     fahrenheitTemperatureFeelsLike
+//   );
+// }
+// let fahrenheitFeelsLike = document.querySelector("#fahrenheit");
+// fahrenheitFeelsLike.addEventListener("click", selectFahrenheitFeelsLike);
+searchCity("Kyiv");

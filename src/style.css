@@ -3,14 +3,6 @@ body {
   /* background-image: url("../img/raduga-nebo-derevya.1920x1200.jpg"); */
   /* background-size: cover; */
 }
-a {
-  text-decoration: none;
-  color: #fff;
-}
-a:hover {
-  /* text-decoration: none; */
-  color: #e2c64b;
-}
 
 .conteiner {
   max-width: 800px;
@@ -87,19 +79,12 @@ form {
   font-size: 42px;
   font-weight: bold;
 }
-.units {
+.unit {
   position: relative;
-  font-size: 16px;
-  top: -20px;
+  font-size: 18px;
+  top: -18px;
 }
-.active {
-  cursor: default;
-  font-size: 20px;
-  color: #e2c64b;
-}
-.active:hover {
-  color: #fff;
-}
+
 .weather-icon {
   width: 350px;
   /* position: relative;
