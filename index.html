@@ -2,7 +2,7 @@
 <html>
   <head>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <title>Parcel Sandbox</title>
+    <title>Weather App</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -20,18 +20,18 @@
   <body>
     <div class="conteiner">
       <div class="wrapper">
-        <div class="search-form">
-          <form id="form-id">
-            <input
-              type="text"
-              placeholder="Enter city"
-              class="search"
-              id="search-text-input"
-            />
-            <input type="submit" value="Search" class="submit" />
-            <input type="submit" value="Current" class="current" />
-          </form>
-        </div>
+        <!-- <div class="search-form"> -->
+        <form id="form-id">
+          <input
+            type="text"
+            placeholder="Enter city"
+            class="search"
+            id="search-text-input"
+          />
+          <input type="submit" value="Search" class="submit" />
+          <input type="submit" value="Current" class="current" />
+        </form>
+        <!-- </div> -->
         <img
           src="icons/undraw_weather_app_re_kcb1.svg"
           alt=""
@@ -62,7 +62,7 @@
           <div class="col">
             <div class="current-icon">
               <img src="" alt="cloudy" class="weather-icon" />
-              <div class="weather-description">cloudy</div>
+              <div class="weather-description"></div>
             </div>
           </div>
           <div class="col">

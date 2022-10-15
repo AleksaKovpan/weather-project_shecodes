@@ -165,7 +165,8 @@ function showPosition(position) {
   axios.get(apiUrl).then(showTemperature);
 }
 
-function getCurrentPosition() {
+function getCurrentPosition(event) {
+  event.preventDefault();
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
