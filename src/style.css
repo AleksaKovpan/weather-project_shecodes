@@ -36,19 +36,39 @@ form {
   font-weight: 700;
 }
 .submit {
-  border: 1px solid #999999;
+  margin-left: 7px;
+  border: 2px solid #999999;
   background: #7ba7ab;
   border-radius: 5px;
   cursor: pointer;
   color: #fff;
+  box-shadow: 2px 5px 5px #868588;
+  transition: all 200ms ease-in-out;
+}
+.submit:hover {
+  background: #838f91;
 }
 
-.current {
+.submit:active {
   border: 1px solid #999999;
+  box-shadow: 1px 5px 5px #868588;
+}
+.current {
+  margin-left: 10px;
+  border: 2px solid #999999;
   background: #7ba7ab;
   border-radius: 5px;
   cursor: pointer;
   color: #fff;
+  box-shadow: 2px 5px 5px #868588;
+  transition: all 200ms ease-in-out;
+}
+.current:hover {
+  background: #838f91;
+}
+.current:active {
+  border: 1px solid #999999;
+  box-shadow: 1px 5px 5px #868588;
 }
 .icon-unDraw {
   width: 200px;
@@ -134,7 +154,7 @@ form {
 
 .city-week {
   position: relative;
-  top: -200px;
+  top: -210px;
 
   border: 2px solid #fff;
   border-radius: 5px;
