@@ -130,9 +130,9 @@ function getForecast(coordinates) {
 
 function showTemperature(response) {
   console.log(response.data);
-  celsiusTemperature = response.data.main.temp;
+
   document.querySelector(".current-city").innerHTML = response.data.name;
-  let temperature = Math.round(celsiusTemperature);
+  let temperature = Math.round(response.data.main.temp);
   let cityTemperature = document.querySelector(".current-temp-value");
   cityTemperature.innerHTML = temperature;
   let wind = response.data.wind.speed;
@@ -145,9 +145,7 @@ function showTemperature(response) {
   let cityWeatherDescription = document.querySelector(".weather-description");
   cityWeatherDescription.innerHTML = `${weatherDescription}`;
 
-  celsiusTemperatureFeelsLike = response.data.main.feels_like;
-
-  let feelsLike = Math.round(celsiusTemperatureFeelsLike);
+  let feelsLike = Math.round(response.data.main.feels_like);
   let cityFeelsLike = document.querySelector(".temp-value-feeling");
   cityFeelsLike.innerHTML = feelsLike;
   let mainIcon = document.querySelector(".weather-icon");
