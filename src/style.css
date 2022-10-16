@@ -32,7 +32,8 @@ form {
   border-radius: 5px;
   outline: none;
   background: #f9f0da;
-  color: #464545;
+  color: #524c4c;
+  font-size: 17px;
   font-weight: 700;
 }
 .submit {
@@ -92,7 +93,7 @@ form {
 }
 
 .current-city-temp {
-  width: 180px;
+  width: 160px;
   position: relative;
   top: -100px;
   left: 10px;
