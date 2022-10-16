@@ -2,6 +2,7 @@ body {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   background-image: url("../icons/pexels-ithalu-dominguez-907485.jpg");
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .conteiner {
